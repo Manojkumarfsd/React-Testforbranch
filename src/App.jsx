@@ -1,22 +1,19 @@
-const Hello=()=>{
-  return(
+let Hello= (props)=>{
+  return (
     <div>
-      <p>hello my namr </p>
+      <p style={{color:"red",backgroundColor:"greenyellow"}}>Hi how are you by {props.me}</p>
     </div>
   )
 }
-const App=()=>{
-const now = new Date;
-const a=20;
-const b=25;
+let App=()=>{
+  let name="manoj" 
+  let age="25"
   return(
-    <div>
-      <p>hello world</p>
-      <Hello/>
-      <p>numner {a} plus {b} ={a+b}</p><Hello/>
-      <h1>finally I wrote my first code in react I am a {now.toString()}Stock developer</h1><Hello/>
-    </div>
-  
+<div>
+  <Hello me="full stack developer"/>
+  <p> {name} is a full stack developer, his age is {age} </p>
+</div>
+
   )
 }
 export default App;
