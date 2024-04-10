@@ -1,7 +1,9 @@
+import './App.css'
 let Hello= (props)=>{
+  
   return (
     <div>
-      <p style={{color:"red",backgroundColor:"greenyellow"}}>Hi how are you by {props.me}</p>
+      <h1>Hi how are you by {props.me}</h1>
     </div>
   )
 }
@@ -11,7 +13,7 @@ let App=()=>{
   return(
 <div>
   <Hello me="full stack developer"/>
-  <p> {name} is a full stack developer, his age is {age} </p>
+  <p> {name} is a full stack developer, his age is new {age} </p>
 </div>
 
   )
