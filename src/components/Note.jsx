@@ -1,11 +1,23 @@
-function Note({not}){
+function Note({note}){
 
-    return(
-    <div>
-      <li>{not.content}</li>
-  
-    </div>
-    )
-  }
-  
-export default Note;  
+if(note.important){
+    return <li>{
+        note.content 
+    }star</li>
+}
+return(
+    <li>
+       {note.content }
+        
+        
+        
+    </li>
+)
+
+
+
+
+
+
+}
+export default Note;

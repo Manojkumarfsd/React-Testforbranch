@@ -3,17 +3,18 @@ import Note from "./components/Note"
 
 function App(props){
   const {notes}=props;
+  const listItem=[];
+
+  notes.forEach((note)=>{
+    listItem.push(<Note key={note.id} note={note}/>)
+  });
   return(
-  <div>
-    <h1>App</h1>
-    <ul>{
-      notes.map((note)=>{
-        return <Note key={note.id}not={note}/>
-      }
-    )
-    }
-    </ul>
-  </div>
+    <div>
+      {listItem}
+
+    </div>
+
   )
+  
 }
 export default App;
