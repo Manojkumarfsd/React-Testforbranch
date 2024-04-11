@@ -1,16 +1,28 @@
-import React from 'react'
+function Note({not}){
 
-const App=(props)=>{
-const {notes}=props;
   return(
-    <div>
-      <ul>
-        <li>{notes[0].content}</li>
-        <li>{notes[1].content}</li>
-        <li>{notes[2].content}</li>
-      </ul>
+  <div>
+    <li>{not.content}</li>
 
-    </div>
+  </div>
+  )
+}
+
+
+
+function App(props){
+  const {notes}=props;
+  return(
+  <div>
+    <h1>App</h1>
+    <ul>{
+      notes.map((note)=>{
+        return <Note key={note.id}not={note}/>
+      }
+    )
+    }
+    </ul>
+  </div>
   )
 }
 export default App;

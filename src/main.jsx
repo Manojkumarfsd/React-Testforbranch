@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
-const notes =[
+const tes =[
     {
         id:1,
         content:"working with array",
@@ -22,4 +22,4 @@ const notes =[
 
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App notes={notes}/>);
+ReactDOM.createRoot(document.getElementById('root')).render(<App notes={tes}/>);
