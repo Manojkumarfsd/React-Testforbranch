@@ -1,14 +1,5 @@
-function Note({not}){
-
-  return(
-  <div>
-    <li>{not.content}</li>
-
-  </div>
-  )
-}
-
-
+import React from "react";
+import Note from "./components/Note"
 
 function App(props){
   const {notes}=props;
