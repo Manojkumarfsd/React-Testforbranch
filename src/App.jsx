@@ -1,33 +1,23 @@
-import React from "react";
-import Note  from './components/Note';
-function App(props){
-  const {notes}= props;
-  const listItem=[];
-  notes.forEach((note)=>{
-    listItem.push(<Note key={note.id} note={note}/>)
-  });
-   let addnote= (event)=>{
-    event.preventDefault();
-    console.log(event.target.elements.note.value);
+import {Component} from 'react'
 
-   }
-   
-    
+class Hello extends Component{
   
-  return(
-    <div>
-      <ol>
-      {
-       listItem
-       
-      }
-</ol>
-      <form onSubmit={addnote}>
-        <input name="note"/>
-        <button type="submit">submit</button>
-      </form>
-      
-    </div>
-  )
+  render(){
+    const {name}=this.props;
+    return (
+      <div>hello my name is {name} </div>
+    )
+  }
+}
+class App extends Component{
+  render(){
+    return(
+      <div>
+        hellow world 2
+        <Hello name={"manoj"}/>
+      </div>
+    )
+
+  }
 }
 export default App;

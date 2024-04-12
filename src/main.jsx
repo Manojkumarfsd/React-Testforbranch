@@ -22,4 +22,4 @@ const tes =[
 
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App notes={tes}/>);
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
