@@ -1,9 +1,9 @@
 
-h1{
-    color:red;
-    background-color:blue;
+#header{
+
+    color: aqua;
+
 }
-p{
-    color:green;
-    background-color: aqua;
+.red{
+    color:red;
 }
