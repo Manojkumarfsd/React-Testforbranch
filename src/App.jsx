@@ -1,23 +1,11 @@
-import {Component} from 'react'
-
-class Hello extends Component{
-  
-  render(){
-    const {name}=this.props;
-    return (
-      <div>hello my name is {name} </div>
-    )
-  }
-}
-class App extends Component{
-  render(){
-    return(
-      <div>
-        hellow world 2
-        <Hello name={"manoj"}/>
-      </div>
-    )
-
-  }
+import React from "react";
+import "./App.css"
+function App(){
+  return(
+    <div>
+      <h1>header</h1>
+      <p>this paragraph is green</p>
+    </div>
+  )
 }
 export default App;
