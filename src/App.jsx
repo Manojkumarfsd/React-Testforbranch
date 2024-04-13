@@ -1,40 +1,33 @@
-import React, { useState } from 'react';
-function Button({text,click}){
-
-  return(
-    <button onClick={click}>{text}</button>
-  )
-
-
-}
-function Display({count}){
-  return(
-    <div>
-    {count}
-    </div>
-  )
-}
-
+import React, { useEffect, useState } from 'react';
 function App(){
-  const [count,setcount]=useState(0);
+  const[data,setdata]=useState(null);
+  useEffect(()=>{
+    fetch(`https://jsonplaceholder.typicode.com/posts`)
+    .then(response=>response.json())
+    .then(result=>setdata(result));
 
-  let handleplus=()=>{
-    setcount(count+1);
-  }
-let handlezero=()=>{
-  setcount(0)
-}
-let handleminus=()=>{
-  setcount(count-1)
-}
+  },[]);
+
+  
   return(
     <div>
-      <Display count={count}/>
-      <Button text='plus' click={handleplus}/>
-      <Button text='zero' click={handlezero}/>
-      <Button text='minus' click={handleminus}/>
+
+      <h1>API</h1>
+      {
+        data ? (
+          <ul>
+            {
+          data.map(item=>{
+           return <li key={item.id}>{item.title}</li>
+
+          })
+        }
+        </ul>
+        ) :(
+          <p>loading...</p>
+        )
+      }
     </div>
   )
 }
-
 export default App;
