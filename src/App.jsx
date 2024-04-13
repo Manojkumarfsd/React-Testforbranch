@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from 'react';
-function App(){
-  const[data,setdata]=useState(null);
-  useEffect(()=>{
-    fetch(`https://jsonplaceholder.typicode.com/posts`)
-    .then(response=>response.json())
-    .then(result=>setdata(result));
+import React from 'react'
 
-  },[]);
 
-  
-  return(
+function Grandchild({parentdata}) {
+
+  console.log(`grand child:${parentdata}`)
+  return (
     <div>
-
-      <h1>API</h1>
-      {
-        data ? (
-          <ul>
-            {
-          data.map(item=>{
-           return <li key={item.id}>{item.title}</li>
-
-          })
-        }
-        </ul>
-        ) :(
-          <p>loading...</p>
-        )
-      }
+      grandchild component
     </div>
   )
 }
-export default App;
+
+function Childcomponent({parentdata}){
+  console.log(`child data: ${parentdata}`)
+
+  return(
+    <div>
+          <h1>child component</h1>
+          <Grandchild  parentdata={parentdata}/>
+          
+    </div>
+  )
+
+}
+
+function App() {
+  const parentdata="data from the parent"
+  console.log(parentdata)
+  return (
+    <div>
+      <h1>parent component</h1>
+      <Childcomponent parentdata={parentdata}/>
+    </div>
+  )
+}
+
+export default App
