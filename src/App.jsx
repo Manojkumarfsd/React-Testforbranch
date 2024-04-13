@@ -1,32 +1,38 @@
-import React, { useState } from 'react'
-function App(){
-  const[counter,setcounter]=useState(0);
-  function handlerplus(){
-      setcounter(counter+1);
-    };
-    function handlerzero(){
-      setcounter(0)
-    };
-    function handlerminus(){
-      setcounter(counter-1);
-
-    }
-
-  
+import React, { useState } from 'react';
+function Button({text,click}){
 
   return(
-    <div className='mt-4 p-4'>
-    <div>
-      
-      <button onClick={handlerplus}>plus</button>
-      <button onClick={handlerzero}>zero</button>
-      <button onClick={handlerminus}>minus</button>
-      
-    </div>
-    <div className ='mt-4 p-4'>
-    {counter}
-    </div>
+    <button onClick={click}>{text}</button>
+  )
 
+
+}
+function Display({count}){
+  return(
+    <div>
+    {count}
+    </div>
+  )
+}
+
+function App(){
+  const [count,setcount]=useState(0);
+
+  let handleplus=()=>{
+    setcount(count+1);
+  }
+let handlezero=()=>{
+  setcount(0)
+}
+let handleminus=()=>{
+  setcount(count-1)
+}
+  return(
+    <div>
+      <Display count={count}/>
+      <Button text='plus' click={handleplus}/>
+      <Button text='zero' click={handlezero}/>
+      <Button text='minus' click={handleminus}/>
     </div>
   )
 }
