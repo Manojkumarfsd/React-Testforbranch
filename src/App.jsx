@@ -1,10 +1,12 @@
-import React from "react";
-import "./App.css"
+import React, { useState } from 'react';
 function App(){
+  const [counter,setcounter]=useState(0);
+  setTimeout(()=>{
+    setcounter(counter+1)
+  },1000)
   return(
-    <div className='mt-4 p-4'>
-      <h1 >header</h1>
-      <p className="red">this paragraph is green</p>
+    <div>
+      {counter}
     </div>
   )
 }
