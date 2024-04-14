@@ -1,45 +1,36 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Home from './components/Home'
 import Note from './components/Note'
-import Users from'./components/Users'
+import Users from './components/Users'
+import {Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 function App() {
-    const[page,setpage]=useState('home')
-    let toPage= (page)=>(event)=>{
-        event.preventDefault();
-        setpage(page);
-    };
-
-    const style={padding:5}
-
-    const content =()=>{
-    if(page==='home'){
-        return<Home/>
-    } else if
-       (page==='note') {
-        return <Note/>
-       } else {
-        page ==='users'
-        return <Users/>
-       }
-    };
-
-    
+  let style={color:'red', padding:5}
   return (
-
-
     <div>
-        <a href=''onClick={toPage('home')} style={style}>Home</a>
-        <a href=''onClick={toPage('note')} style={style} >Note</a>
-        <a href=''onClick={toPage('users')}style={style}>Users</a>
-        <div>
-            
-        </div>
-        {content()}
+<Router>
+  <div>
+    <Link to='/Home'style={style}>Home</Link>
+    <Link to='/Note'style={style}>Note</Link>
+    <Link to='/Users'style={style}>Users</Link>
+
+
+  </div>
+  <Routes>
+
+    <Route path='/Home' element={<Home/>}/>
+    <Route path='/Note' element={<Note/>}/>
+    <Route path='/Users' element={<Users/>}/>
+
+
+  </Routes>
+</Router>
+
+
+
     </div>
   )
 }
 
-
 export default App;
-
