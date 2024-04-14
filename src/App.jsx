@@ -1,38 +1,45 @@
-import React from 'react'
-
-
-function Grandchild({parentdata}) {
-
-  console.log(`grand child:${parentdata}`)
-  return (
-    <div>
-      grandchild component
-    </div>
-  )
-}
-
-function Childcomponent({parentdata}){
-  console.log(`child data: ${parentdata}`)
-
-  return(
-    <div>
-          <h1>child component</h1>
-          <Grandchild  parentdata={parentdata}/>
-          
-    </div>
-  )
-
-}
+import React, { useState } from 'react'
+import Home from './components/Home'
+import Note from './components/Note'
+import Users from'./components/Users'
 
 function App() {
-  const parentdata="data from the parent"
-  console.log(parentdata)
+    const[page,setpage]=useState('home')
+    let toPage= (page)=>(event)=>{
+        event.preventDefault();
+        setpage(page);
+    };
+
+    const style={padding:5}
+
+    const content =()=>{
+    if(page==='home'){
+        return<Home/>
+    } else if
+       (page==='note') {
+        return <Note/>
+       } else {
+        page ==='users'
+        return <Users/>
+       }
+    };
+
+    
   return (
+
+
     <div>
-      <h1>parent component</h1>
-      <Childcomponent parentdata={parentdata}/>
+        <a href=''onClick={toPage('home')} style={style}>Home</a>
+        <a href=''onClick={toPage('note')} style={style} >Note</a>
+        <a href=''onClick={toPage('users')}style={style}>Users</a>
+        <div>
+            
+        </div>
+        {content()}
     </div>
   )
 }
 
-export default App
+
+export default App;
+

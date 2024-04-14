@@ -1,10 +1,9 @@
-function Note({note}){
+import React from 'react'
+function Note(){
 
 
 return(
-   <li>
-    {note.content }{note.important && "      star "}
-   </li>
+   <div>Note components</div>
 )
 }
 export default Note;
