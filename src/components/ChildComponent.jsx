@@ -1,12 +1,16 @@
-import React from 'react'
-import GrandChildComponent from './GrandChildComponent'
+import React,{useContext} from 'react'
+import {MessageContext} from '../App';
 
-function ChildComponent({message}) {
+function ChildComponent() {
+    const message = useContext(MessageContext)
     
   return (
     <div>
-        <h1>ChildComponent </h1>
-        <GrandChildComponent message={message}/>
+        <h1><b>ChildComponent </b></h1>
+        <p>message from the parrent component:{message}</p>
+        
+        <h2><b></b></h2> 
+    
 
 
     </div>
@@ -14,4 +18,4 @@ function ChildComponent({message}) {
   )
 }
 
-export default ChildComponent
+export default ChildComponent;
