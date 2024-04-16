@@ -2,10 +2,12 @@ import React from 'react'
 import Home from './components/Home'
 import Note from './components/Note'
 import Users from './components/Users'
+import Notes from './components/Notes'
 import {Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
-function App() {
+
+function App({notes}) {
   let style={color:'red', padding:5}
   return (
     <div>
@@ -20,8 +22,9 @@ function App() {
   <Routes>
 
     <Route path='/Home' element={<Home/>}/>
-    <Route path='/Note' element={<Note/>}/>
+    <Route path='/Note' element={<Note notes={notes}/>}/>
     <Route path='/Users' element={<Users/>}/>
+    <Route path='notes/:noteid' element={<Note notes={notes}/>}/>
 
 
   </Routes>
