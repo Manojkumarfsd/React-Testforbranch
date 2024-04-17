@@ -1,54 +1,22 @@
-import React, { useState } from 'react'
-import Note from './components/Note'
+import React, { createContext, useState } from 'react'
+import Profile from './components/Profile';
 
 
+const profileContext= createContext();
 
-function App(props) {
-  const [notes,setNotes]=useState(props.notes)
-  const [newNote, setNewnote]= useState(" ")
-
-  const addNote=(event)=>{
-    event.preventDefault();
-    
-    const noteobject ={
-      id:notes.length+1,
-      content: newNote,
-      important:  Math.random()< 0.5 }
-
-      setNotes(notes.concat(noteobject));
-      setNewnote(" ");
-    
-  }
-
-  const handleNoteChange =(event)=>{
-    setNewnote(event.target.value)
-
-
-  }
+function App() {
+  const[profilename, setprofilename]= useState('');
 
   return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        {
-          notes.map(note=>
-          <Note key={note.id}note={note}/> 
+    <div>App
+      
+      <profileContext.Provider value={{profilename,setprofilename}}>
+        <Profile/>
 
-          )}
-        
-      </ul>
-      <form onSubmit={addNote}>
-        <input  
-        value={newNote}
-        placeholder='a new note'
-        onChange={handleNoteChange}
-        />
-        <button type='submit'>save</button>
-      </form>
+      </profileContext.Provider>
 
-   
     </div>
   )
 }
 
-export default App;
+export  {App as default, profileContext};
